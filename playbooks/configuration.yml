@@ -1,0 +1,6 @@
+---
+
+- name: All configuration
+  hosts: all
+  roles:
+    - { role: guillaumededrie.spf13, tags: ['vim', 'spf13'] }

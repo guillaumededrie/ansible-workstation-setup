@@ -1,0 +1,52 @@
+---
+
+- name: Clone spf13 repo
+  git:
+    repo: "{{ spf13_repo_uri }}"
+    version: "{{ spf13_repo_version }}"
+    dest: "{{ spf13_app_dir }}"
+
+- name: Create bundle directory
+  file:
+    path: "{{ spf13_app_dir }}/.vim/bundle"
+    recurse: yes
+    state: directory
+
+- name: Create symlinks
+  file:
+    src: "{{ item.src }}"
+    dest: "{{ item.dest }}"
+    state: link
+  ignore_errors: yes
+  with_items:
+    - src: "{{ spf13_app_dir }}/.vimrc"
+      dest: "{{ ansible_env.HOME}}/.vimrc"
+    - src: "{{ spf13_app_dir }}/.vimrc.bundles"
+      dest: "{{ ansible_env.HOME}}/.vimrc.bundles"
+    - src: "{{ spf13_app_dir }}/.vimrc.before"
+      dest: "{{ ansible_env.HOME}}/.vimrc.before"
+    - src: "{{ spf13_app_dir }}/.vim"
+      dest: "{{ ansible_env.HOME}}/.vim"
+    - src: "{{ spf13_app_dir }}/.vimrc.fork"
+      dest: "{{ ansible_env.HOME}}/.vimrc.fork"
+    - src: "{{ spf13_app_dir }}/.vimrc.bundles.fork"
+      dest: "{{ ansible_env.HOME}}/.vimrc.bundles.fork"
+    - src: "{{ spf13_app_dir }}/.vimrc.before.fork"
+      dest: "{{ ansible_env.HOME}}/.vimrc.before.fork"
+
+- name: Clone Vundle
+  git:
+    repo: "{{ vundle_repo_uri }}"
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/vundle"
+
+- name: Setup Vundle (take long time)
+  shell: >
+    vim
+    -u "{{ spf13_app_dir }}/.vimrc.bundles.default"
+    "+set nomore"
+    "+BundleInstall!"
+    "+BundleClean"
+    "+qall"
+  args:
+    chdir: "{{ ansible_env.HOME }}"
+    executable: /bin/sh

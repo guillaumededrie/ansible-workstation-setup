@@ -1,0 +1,7 @@
+---
+
+spf13_repo_uri: https://github.com/spf13/spf13-vim.git
+spf13_repo_version: 3.0
+spf13_app_dir: "{{ ansible_env.HOME }}/.spf13-vim-3"
+
+vundle_repo_uri: https://github.com/gmarik/vundle.git
