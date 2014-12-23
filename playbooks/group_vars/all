@@ -1,0 +1,16 @@
+---
+
+antigen_theme: ys
+antigen_bundles:
+  - archlinux
+  - command-not-found
+  - docker
+  - git
+  - github
+  - python
+  - pip
+  - tmux
+  - tmuxinator
+  - vagrant
+  - z
+  - zsh-users/zsh-syntax-highlighting

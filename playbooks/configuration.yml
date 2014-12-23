@@ -4,3 +4,4 @@
   hosts: all
   roles:
     - { role: guillaumededrie.spf13, tags: ['vim', 'spf13'] }
+    - { role: guillaumededrie.antigen, tags: ['zsh', 'antigen'] }

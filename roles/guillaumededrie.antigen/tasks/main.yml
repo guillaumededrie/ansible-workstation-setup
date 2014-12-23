@@ -1,0 +1,13 @@
+---
+
+- name: Clone Antigen repo
+  git:
+    repo: "{{ antigen_repo_uri }}"
+    version: "{{ antigen_repo_version }}"
+    dest: "{{ antigen_app_dir }}"
+
+- name: Copy .zshrc template for antigen
+  template:
+    src: zshrc.j2
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    backup: yes

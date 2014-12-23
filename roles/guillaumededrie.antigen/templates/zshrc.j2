@@ -1,0 +1,13 @@
+source {{ antigen_app_dir }}/antigen.zsh
+
+# Load libraries
+antigen use oh-my-zsh
+
+{% for bundle in antigen_bundles %}
+antigen bundle {{ bundle }}
+{% endfor %}
+
+# Theme
+antigen theme {{ antigen_theme }}
+
+antigen apply

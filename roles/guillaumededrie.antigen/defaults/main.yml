@@ -1,0 +1,9 @@
+---
+
+antigen_repo_uri: https://github.com/zsh-users/antigen.git
+antigen_repo_version: master
+antigen_app_dir: "{{ ansible_env.HOME }}/.antigen"
+
+antigen_theme: robbyrussell
+antigen_bundles:
+  - git
