@@ -1,6 +1,5 @@
 ---
 
-antigen_theme: ys
 antigen_bundles:
   - archlinux
   - colored-man
@@ -12,6 +11,8 @@ antigen_bundles:
   - github
   - python
   - pip
+  # Theme plugin
+  - sindresorhus/pure
   - tmux
   - tmuxinator
   - vagrant

@@ -7,7 +7,9 @@ antigen use oh-my-zsh
 antigen bundle {{ bundle }}
 {% endfor %}
 
+{% if antigen_theme %}
 # Theme
 antigen theme {{ antigen_theme }}
+{% endif %}
 
 antigen apply
