@@ -3,9 +3,12 @@
 antigen_theme: ys
 antigen_bundles:
   - archlinux
+  - colored-man
   - command-not-found
   - docker
+  - extract
   - git
+  - git-extras
   - github
   - python
   - pip
