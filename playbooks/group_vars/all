@@ -1,5 +1,8 @@
 ---
 
+user:
+  name: gdedrie
+
 antigen_bundles:
   - archlinux
   - colored-man

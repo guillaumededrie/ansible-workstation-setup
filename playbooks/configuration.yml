@@ -2,9 +2,11 @@
 
 - name: All configuration
   hosts: all
+  gather_facts: yes
   roles:
     - { role: guillaumededrie.fonts, tags: ['fonts'] }
     - { role: guillaumededrie.xressources, tags: ['xressources'] }
     - { role: guillaumededrie.urxvt, tags: ['term', 'urxvt'] }
-    - { role: guillaumededrie.spf13, tags: ['vim', 'spf13'] }
+    - { role: guillaumededrie.zsh, tags: ['zsh'] }
     - { role: guillaumededrie.antigen, tags: ['zsh', 'antigen'] }
+    - { role: guillaumededrie.spf13, tags: ['vim', 'spf13'] }

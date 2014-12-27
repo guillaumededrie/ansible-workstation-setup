@@ -1,0 +1,19 @@
+---
+
+- name: Install ZSH
+  pacman:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items: zsh_packages
+
+- name: Copy default Zsh configuration
+  copy:
+    src: zshrc
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+
+- name: Change default Shell to ZSH
+  user:
+    name: "{{ user.name }}"
+    shell: /usr/bin/zsh
+  sudo: yes

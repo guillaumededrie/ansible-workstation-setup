@@ -1,0 +1,6 @@
+---
+
+zsh_packages:
+  - zsh
+  - zsh-completions
+  - zsh-syntax-highlighting
