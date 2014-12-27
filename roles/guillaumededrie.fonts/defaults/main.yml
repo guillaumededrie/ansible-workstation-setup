@@ -1,0 +1,13 @@
+---
+
+font_vconsole_default: lat1-16
+font_common:
+  - font-mathematica
+  - ttf-bitstream-vera
+  - ttf-dejavu
+  - ttf-droid
+  - ttf-freefont
+  - ttf-gentium
+  - ttf-liberation
+  - ttf-linux-libertine
+  - ttf-symbola

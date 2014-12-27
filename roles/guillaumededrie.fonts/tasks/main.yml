@@ -1,0 +1,21 @@
+---
+
+- name: Install Common fonts
+  pacman:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items: font_common
+
+- name: Install kdb package
+  pacman:
+    name: kbd
+    state: present
+  sudo: yes
+
+- name: Set lat1-16 as default font in /etc/vconsole.conf
+  lineinfile:
+    dest: /etc/vconsole.conf
+    regexp: "^FONT="
+    line: "FONT={{ font_vconsole_default }}"
+  sudo: yes
