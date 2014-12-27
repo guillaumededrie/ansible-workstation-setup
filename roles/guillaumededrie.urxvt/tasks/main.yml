@@ -1,0 +1,18 @@
+---
+
+- name: Install Urxvt
+  pacman:
+    name: rxvt-unicode
+    state: present
+  sudo: yes
+
+- name: Copy Xressources template in .Xressources.d directory
+  template:
+    src: xressources.j2
+    dest: "{{ ansible_env.HOME }}/.Xressources.d/urxvt"
+
+- name: Activate urxvt ressources in .Xressources
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.Xressources"
+    line: "#include \".Xressources.d/urxvt\""
+    state: present

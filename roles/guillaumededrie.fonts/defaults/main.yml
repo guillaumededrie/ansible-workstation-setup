@@ -3,6 +3,7 @@
 font_vconsole_default: lat1-16
 font_common:
   - font-mathematica
+  - terminus-font
   - ttf-bitstream-vera
   - ttf-dejavu
   - ttf-droid
