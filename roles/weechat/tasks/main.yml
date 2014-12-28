@@ -1,0 +1,17 @@
+---
+
+- name: Install Weechat requirements
+  pacman:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items:
+    - aspell
+    - ruby
+    - tcl
+
+- name: Install Weechat
+  pacman:
+    name: weechat
+    state: present
+  sudo: yes
