@@ -4,6 +4,8 @@
   hosts: all
   gather_facts: yes
   roles:
+    - { role: alsa, tags: ['alsa'] }
+    - { role: gstreamer, tags: ['gstreamer'] }
     - { role: fonts, tags: ['fonts'] }
     - { role: xressources, tags: ['xressources'] }
     - { role: urxvt, tags: ['term', 'urxvt'] }

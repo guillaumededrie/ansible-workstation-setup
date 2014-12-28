@@ -1,0 +1,14 @@
+---
+
+- name: Install GStreamer
+  pacman:
+    name: gstreamer
+    state: present
+  sudo: yes
+
+- name: Install GStreamer plugins
+  pacman:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items: gstreamer_plugins

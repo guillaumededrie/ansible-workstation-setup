@@ -1,0 +1,10 @@
+---
+
+- name: Install User space utilities
+  pacman:
+    name: "{{ item }}"
+    state: present
+  sudo: yes
+  with_items:
+    - alsa-utils
+    - alsa-plugins
