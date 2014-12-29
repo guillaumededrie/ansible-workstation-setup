@@ -12,4 +12,5 @@
     - { role: zsh, tags: ['zsh'] }
     - { role: antigen, tags: ['zsh', 'antigen'] }
     - { role: spf13, tags: ['vim', 'spf13'] }
+    - { role: tmux, tags: ['tmux'] }
     - { role: weechat, tags: ['weechat'] }

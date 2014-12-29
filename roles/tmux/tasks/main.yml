@@ -1,0 +1,13 @@
+---
+
+- name: Install core package
+  pacman:
+    name: tmux
+    state: present
+  sudo: yes
+
+- name: Copy default tmux config file
+  copy:
+    src: tmux.conf
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    backup: yes
