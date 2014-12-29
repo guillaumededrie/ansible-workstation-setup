@@ -16,3 +16,4 @@
     src: tmux.conf.j2
     dest: "{{ ansible_env.HOME }}/.tmux.conf"
     backup: yes
+  notify: Install or Update plugins

@@ -1,0 +1,5 @@
+---
+
+- name: Update plugins
+  debug:
+    msg: "Hit prefix (= Ctrl - B) + U to update plugin(s)"

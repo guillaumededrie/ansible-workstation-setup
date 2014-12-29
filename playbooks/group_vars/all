@@ -21,3 +21,7 @@ antigen_bundles:
   - vagrant
   - z
   - zsh-users/zsh-syntax-highlighting
+
+tpm_plugins:
+  - tmux-plugins/tmux-sensible
+  - tmux-plugins/tmux-logging

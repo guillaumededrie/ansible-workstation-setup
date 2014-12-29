@@ -5,3 +5,6 @@ tpm_plugins_dir: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
 tpm_repo_uri: https://github.com/tmux-plugins/tpm
 tpm_repo_version: master
 tpm_app_dir: "{{ ansible_env.HOME }}/.tmux/plugins/tpm"
+
+tpm_plugins:
+  - tmux-plugins/tmux-sensible
