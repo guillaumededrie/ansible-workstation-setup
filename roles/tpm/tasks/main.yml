@@ -1,0 +1,18 @@
+---
+
+- name: Generate directory plugin for tpm
+  file:
+    path: "{{ tpm_plugins_dir }}"
+    state: directory
+
+- name: Clone tpm repo
+  git:
+    repo: "{{ tpm_repo_uri }}"
+    version: "{{ tpm_repo_version }}"
+    dest: "{{ tpm_app_dir }}"
+
+- name: Replace tmux.conf
+  template:
+    src: tmux.conf.j2
+    dest: "{{ ansible_env.HOME }}/.tmux.conf"
+    backup: yes
