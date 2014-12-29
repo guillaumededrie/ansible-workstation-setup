@@ -1,0 +1,8 @@
+---
+
+- name: Install core package for Xscreensaver
+  pacman:
+    name: xscreensaver
+    state: present
+  sudo: yes
+
