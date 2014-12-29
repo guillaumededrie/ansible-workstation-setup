@@ -16,3 +16,4 @@
     - { role: tmux, tags: ['tmux'] }
     - { role: tpm, tags: ['tmux', 'tpm'] }
     - { role: weechat, tags: ['weechat'] }
+    - { role: virtualbox, tags: ['virtualbox'] }

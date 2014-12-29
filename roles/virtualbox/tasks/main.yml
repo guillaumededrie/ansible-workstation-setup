@@ -1,0 +1,25 @@
+---
+
+- name: Install Virtualbox core packages
+  pacman:
+    name: virtualbox
+    state: present
+  sudo: yes
+
+- name: Install packages for Host-only networking
+  pacman:
+    name: net-tools
+    state: present
+  sudo: yes
+
+- name: Enable Kernels modules
+  copy:
+    src: virtualbox.conf
+    dest: /etc/modules-load.d/virtualbox.conf
+  sudo: yes
+
+- name: Add user to the vboxusers group
+  user:
+    name: "{{ user.name }}"
+    groups: vboxusers
+  sudo: yes
