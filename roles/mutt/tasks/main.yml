@@ -1,0 +1,26 @@
+---
+
+- name: Install core Mutt package
+  pacman:
+    name: mutt
+    state: present
+  sudo: yes
+
+- name: Create ~/.mutt directory
+  file:
+    path: "{{ mutt_directory }}"
+    state: directory
+
+- name: Copy muttrc template
+  template:
+    src: muttrc.j2
+    dest: "{{ ansible_env.HOME }}/.muttrc"
+    backup: yes
+
+- name: Copy additional config files
+  copy:
+    src: "{{ item }}"
+    dest: "{{ mutt_directory }}/{{ item }}"
+    backup: yes
+  with_items:
+    - colors.zenburn

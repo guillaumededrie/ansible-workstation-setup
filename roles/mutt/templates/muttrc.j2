@@ -1,0 +1,12 @@
+## General options
+set wait_key = no
+set mbox_type = Maildir
+set header_cache = "~/.cache/mutt"
+set imap_check_subscribed
+set imap_keepalive = 300
+unset imap_passive
+set mail_check = 60
+
+source "{{ mutt_directory }}/colors.zenburn"
+
+source "{{ ansible_env.HOME }}/.muttrc.local"
