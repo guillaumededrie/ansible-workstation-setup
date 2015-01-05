@@ -4,6 +4,7 @@
   hosts: all
   gather_facts: yes
   roles:
+    - { role: pacman, tags: ['pacman'] }
     - { role: xscreensaver, tags: ['xscreensaver'] }
     - { role: alsa, tags: ['alsa'] }
     - { role: gstreamer, tags: ['gstreamer'] }
