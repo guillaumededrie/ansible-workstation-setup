@@ -1,6 +1,0 @@
----
-
-- name: Update Pacman cache
-  pacman:
-    update_cache: yes
-  sudo: yes

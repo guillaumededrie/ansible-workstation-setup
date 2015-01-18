@@ -3,9 +3,39 @@
 user:
   name: gdedrie
 
+pacman_repositories:
+  - section: archlinuxfr
+    option: SigLevel
+    value: Never
+  - section: archlinuxfr
+    option: Server
+    value: http://repo.archlinux.fr/$arch
+  - section: multilib
+    option: Include
+    value: /etc/pacman.d/mirrorlist
+
 pacman_packages:
   - wget
+  - mercurial
   - yaourt
+  - the_silver_searcher
+  - lftp
+  - rsync
+  - mupdf
+  - zip
+  - ntfs-3g
+  - p7zip
+  - dosfstools
+  - libreoffice-fresh
+  - whois
+  - python-sphinx
+  - texlive-most
+  - dnsutils
+  - strace
+  - mesa-libgl
+  - lib32-mesa-libgl
+  - python2-lxml
+  - python-lxml
 
 antigen_bundles:
   - archlinux

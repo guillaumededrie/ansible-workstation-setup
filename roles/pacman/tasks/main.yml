@@ -7,15 +7,15 @@
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     backup: yes
-  notify: Update Pacman cache
   sudo: yes
-  with_items:
-    - section: archlinuxfr
-      option: SigLevel
-      value: Never
-    - section: archlinuxfr
-      option: Server
-      value: http://repo.archlinux.fr/$arch
+  with_items: pacman_repositories
+  register: pacman_repositories_update
+
+- name: Update Pacman cache
+  pacman:
+    update_cache: yes
+  sudo: yes
+  when: pacman_repositories_update|changed
 
 - name: Install standalone Packages
   pacman:

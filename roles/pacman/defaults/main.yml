@@ -1,4 +1,6 @@
 ---
 
+pacman_repositories: []
+
 pacman_packages:
   - yaourt
