@@ -8,5 +8,6 @@ unset imap_passive
 set mail_check = 60
 
 source "{{ mutt_directory }}/colors.zenburn"
+source "{{ mutt_directory }}/gpg.rc"
 
 source "{{ ansible_env.HOME }}/.muttrc.local"

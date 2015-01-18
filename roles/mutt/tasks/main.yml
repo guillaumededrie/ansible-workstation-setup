@@ -24,3 +24,4 @@
     backup: yes
   with_items:
     - colors.zenburn
+    - gpg.rc
