@@ -1,0 +1,4 @@
+---
+
+firefox_profiles: []
+firefox_profile_directory: "{{ ansible_env.HOME }}/.mozilla/firefox"

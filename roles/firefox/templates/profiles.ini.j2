@@ -1,0 +1,9 @@
+[General]
+StartWithLastProfile=1
+
+{% for item in firefox_profiles %}
+[Profile{{ loop.index0 }}]
+Name={{ item.name }}
+IsRelative=0
+Path={{ firefox_profile_directory }}/{{ item.directory_name }}
+{% endfor %}

@@ -1,0 +1,54 @@
+---
+
+- name: Create extensions directories
+  file:
+    path: "{{ firefox_profile_directory }}/{{ item.directory_name }}/extensions"
+    mode: 0700
+    state: directory
+  with_items: firefox_profiles
+
+- name: Create temp directory
+  command: mktemp -d
+  register: mktemp
+
+- debug:
+    var: mktemp
+
+- name: Gather informations using Official API
+  get_url:
+    url: https://services.addons.mozilla.org/en-US/firefox/api/1.5/addon/{{ item.1.id }}
+    dest: "{{ mktemp.stdout }}/{{ item.1.id }}.xml"
+  with_subelements:
+    - firefox_profiles
+    - extensions
+
+- name: Retrieve download URI
+  xml:
+    file: "{{ mktemp.stdout }}/{{ item.1.id }}.xml"
+    xpath: /addon/install
+    get: yes
+  register: extensions_file_url
+  with_subelements:
+    - firefox_profiles
+    - extensions
+
+- xml:
+    file: "{{ mktemp.stdout }}/{{ item.1.id }}.xml"
+    xpath: /addon/guid
+    get: yes
+  register: extensions_guid
+  with_subelements:
+    - firefox_profiles
+    - extensions
+
+- name: Download and Install Extensions
+  get_url:
+    url: "{{ item.msg }}"
+    dest: "{{ mktemp.stdout }}/{{ item.item.1.id }}.xpi"
+    # TODO: sha256sum:
+  with_items: extensions_file_url.results
+
+- command: "cp {{ mktemp.stdout }}/{{ item.item.1.id }}.xpi {{ firefox_profile_directory }}/{{ item.item.0.directory_name }}/extensions/{{ item.msg }}.xpi"
+  args:
+    creates: "{{ firefox_profile_directory }}/{{ item.item.0.directory_name }}/extensions/{{ item.msg }}.xpi"
+  with_items: extensions_guid.results

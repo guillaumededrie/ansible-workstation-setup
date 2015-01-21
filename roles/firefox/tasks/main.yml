@@ -1,0 +1,13 @@
+---
+
+- name: Ensure directory are presents
+  file:
+    path: "{{ item }}"
+    mode: 0700
+    state: directory
+  with_items:
+    - "{{ ansible_env.HOME }}/.mozilla"
+    - "{{ firefox_profile_directory }}"
+
+- include: profiles.yml
+- include: extensions.yml

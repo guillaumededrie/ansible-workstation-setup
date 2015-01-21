@@ -1,0 +1,15 @@
+---
+
+- name: Add Profile into profiles.ini file
+  template:
+    src: profiles.ini.j2
+    dest: "{{ firefox_profile_directory }}/profiles.ini"
+    backup: yes
+    mode: 0700
+
+- name: Create profile directory
+  file:
+    path: "{{ firefox_profile_directory }}/{{ item.directory_name }}"
+    mode: 0700
+    state: directory
+  with_items: firefox_profiles
