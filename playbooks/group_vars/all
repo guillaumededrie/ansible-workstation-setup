@@ -59,3 +59,31 @@ antigen_bundles:
 tpm_plugins:
   - tmux-plugins/tmux-sensible
   - tmux-plugins/tmux-logging
+
+
+# Firefox
+firefox_profiles:
+  - name: Secure
+    directory_name: secure
+    extensions:
+      - id: 722 # NoScript Security Suite
+      - id: 1865 # Adblock Plus
+      - id: 5791 # Flagfox
+      - id: 6415 # Certificate Patrol
+      - id: 6623 # BetterPrivacy
+      - id: 9609 # Ghostery
+      - id: 10586 # TinyUrl Generator
+      - id: 200283 # Multifox
+      - id: 261959 # Bloody Viking!
+      - id: 422756 # Private Tab
+      - id: 464050 # Disconnect
+      - id: 473878 # Random Agent Spoofer
+  - name: Web Dev
+    directory_name: webdev
+    extensions:
+      - id: 60 # Web Developer
+      - id: 10586 # TinyUrl Generator
+      - id: 200283 # Multifox
+      - id: 261959 # Bloody Viking!
+      - id: 422756 # Private Tab
+      - id: 473878 # Random Agent Spoofer
