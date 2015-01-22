@@ -39,6 +39,7 @@ pacman_packages:
   - htop
   - nmap
 
+# Antigen
 antigen_bundles:
   - archlinux
   - colored-man
@@ -50,14 +51,16 @@ antigen_bundles:
   - github
   - python
   - pip
-  # Theme plugin
-  - sindresorhus/pure
   - tmux
   - tmuxinator
   - vagrant
   - z
   - zsh-users/zsh-syntax-highlighting
 
+antigen_theme: "zenorocha/dracula-theme zsh/dracula"
+
+
+# TPM (Tmux plugins)
 tpm_plugins:
   - tmux-plugins/tmux-sensible
   - tmux-plugins/tmux-logging

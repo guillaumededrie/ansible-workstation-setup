@@ -3,8 +3,8 @@
 - name: Clone Antigen repo
   git:
     repo: "{{ antigen_repo_uri }}"
-    version: "{{ antigen_repo_version }}"
     dest: "{{ antigen_app_dir }}"
+    version: "{{ antigen_repo_version }}"
 
 - name: Copy .zshrc template for antigen
   template:
