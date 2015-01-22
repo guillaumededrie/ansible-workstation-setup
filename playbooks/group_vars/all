@@ -36,6 +36,8 @@ pacman_packages:
   - lib32-mesa-libgl
   - python2-lxml
   - python-lxml
+  - htop
+  - nmap
 
 antigen_bundles:
   - archlinux
