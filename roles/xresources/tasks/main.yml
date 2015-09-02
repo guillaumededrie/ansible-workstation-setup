@@ -1,0 +1,35 @@
+---
+
+- name: Install needed packages
+  sudo: yes
+  pacman:
+    name: xorg-xrdb
+    state: present
+
+- name: Generate empty .Xresources file and .Xresources.d directory
+  file:
+    path: "{{ ansible_env.HOME }}/.Xresources"
+    state: file
+
+- file:
+    path: "{{ ansible_env.HOME }}/.Xresources.d"
+    state: directory
+
+- name: Copy colors Xresources file
+  copy:
+    src: colors
+    dest: "{{ ansible_env.HOME }}/.Xresources.d/colors"
+
+- name: Activate colors ressources in .Xresources
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.Xresources"
+    line: "#include \".Xresources.d/colors\""
+    state: present
+
+- name: Activate xrdb merge in .xinitrc file
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.xinitrc"
+    line: "[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources"
+    insertbefore: "^exec"
+    create: yes
+    state: present
