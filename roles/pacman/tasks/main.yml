@@ -1,25 +1,25 @@
 ---
 
 - name: Update repo list
+  sudo: yes
+  register: pacman_repositories_update
   ini_file:
     dest: /etc/pacman.conf
     section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     backup: yes
-  sudo: yes
   with_items: pacman_repositories
-  register: pacman_repositories_update
 
 - name: Update Pacman cache
-  pacman:
-    update_cache: yes
   sudo: yes
   when: pacman_repositories_update|changed
+  pacman:
+    update_cache: yes
 
 - name: Install standalone Packages
+  sudo: yes
   pacman:
     name: "{{ item }}"
     state: present
-  sudo: yes
   with_items: pacman_packages
