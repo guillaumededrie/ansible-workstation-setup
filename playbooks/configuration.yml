@@ -9,7 +9,7 @@
     - { role: alsa, tags: ['alsa'] }
     - { role: gstreamer, tags: ['gstreamer'] }
     - { role: fonts, tags: ['fonts'] }
-    - { role: xressources, tags: ['xressources'] }
+    - { role: xresources, tags: ['xressources'] }
     - { role: urxvt, tags: ['term', 'urxvt'] }
     - { role: zsh, tags: ['zsh'] }
     - { role: antigen, tags: ['zsh', 'antigen'] }
